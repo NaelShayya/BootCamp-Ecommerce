@@ -22,7 +22,7 @@ const userSchema = new Schema({
   role_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Role",
-    required: true,
+    required: false,
   },
   created_at: {
     type: Date,
@@ -35,7 +35,7 @@ const userSchema = new Schema({
   country_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Country",
-    required: true,
+    required: false,
   },
 });
 
