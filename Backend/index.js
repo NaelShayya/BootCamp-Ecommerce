@@ -8,6 +8,7 @@ import initializePassport from "./config/passport.js";
 import authRoutes from "./routes/authRoutes.js";
 import countryRoutes from "./routes/countryRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import productRoutes from "./routes/productRoutes.js";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -37,6 +38,7 @@ initializePassport(passport);
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api", countryRoutes);
+app.use("/api", productRoutes);
 
 const port = process.env.PORT || 6001;
 app.listen(port, () => console.log(`Server running on port ${port}`));
