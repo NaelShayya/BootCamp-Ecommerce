@@ -19,12 +19,11 @@ const productSchema = new Schema({
   product_image: {
     data: Buffer,
     contentType: String,
-    required: true,
   },
   category_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Category",
-    required: true,
+    required: false,
   },
   created_at: {
     type: Date,

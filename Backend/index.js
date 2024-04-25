@@ -9,8 +9,9 @@ import authRoutes from "./routes/authRoutes.js";
 import Role from "./models/Role.js";
 import Country from "./models/Country.js";
 import Currency from "./models/Currency.js";
+import Product from "./models/Product.js";
 import dotenv from "dotenv";
-
+import productRoutes from "./routes/productRoutes.js"
 dotenv.config();
 
 const app = express();
@@ -35,7 +36,12 @@ app.use(passport.session());
 // Initialize Passport
 initializePassport(passport);
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the root URL!");
+});
+
 app.use("/api/auth", authRoutes);
+app.use("/api", productRoutes);
 
 const port = process.env.PORT || 6001;
 app.listen(port, () => console.log(`Server running on port ${port}`));
@@ -43,3 +49,4 @@ app.listen(port, () => console.log(`Server running on port ${port}`));
 console.log("role", Role);
 console.log("country", Country);
 console.log("currency", Currency);
+console.log("product", Product);
