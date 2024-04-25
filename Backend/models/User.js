@@ -19,10 +19,37 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  role_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Role",
-    required: false,
+
+  title: {
+    type: String,
+    enum: ["Mr.", "Mrs.", "Ms."],
+    required: true,
+  },
+  birthdate: {
+    type: Date,
+    required: true,
+  },
+  gender: {
+    type: String,
+    required: true,
+  },
+  profile_picture: {
+    data: Buffer,
+    contentType: String,
+  },
+  country: {
+    type: Schema.Types.Mixed,
+    ref: "Country",
+    required: true,
+  },
+  role: {
+    type: String,
+    required: true,
+  },
+  status: {
+    type: String,
+    enum: ["blocked", "unblocked"],
+    default: "unblocked",
   },
   created_at: {
     type: Date,
@@ -32,13 +59,7 @@ const userSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  country_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Country",
-    required: false,
-  },
 });
 
 const User = mongoose.model("User", userSchema);
-
 export default User;

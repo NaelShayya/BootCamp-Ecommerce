@@ -6,9 +6,8 @@ import session from "express-session";
 import passport from "passport";
 import initializePassport from "./config/passport.js";
 import authRoutes from "./routes/authRoutes.js";
-import Role from "./models/Role.js";
-import Country from "./models/Country.js";
-import Currency from "./models/Currency.js";
+import countryRoutes from "./routes/countryRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -36,10 +35,8 @@ app.use(passport.session());
 initializePassport(passport);
 
 app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api", countryRoutes);
 
 const port = process.env.PORT || 6001;
 app.listen(port, () => console.log(`Server running on port ${port}`));
-
-console.log("role", Role);
-console.log("country", Country);
-console.log("currency", Currency);

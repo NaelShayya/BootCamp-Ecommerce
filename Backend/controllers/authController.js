@@ -2,27 +2,45 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 import Country from "../models/Country.js";
-import Role from "../models/Role.js";
 
 const register = async (req, res) => {
   try {
-    const { first_name, last_name, email, password } = req.body;
+    const {
+      first_name,
+      last_name,
+      email,
+      password,
+      country_name,
+      title,
+      gender,
+      birthdate,
+      role = "User",
+    } = req.body;
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const selectedCountry = await Country.findOne({ country_name });
+    if (!selectedCountry) {
+      return res.status(400).json({ message: "Invalid country" });
+    }
 
-    const user = new User({
+    const newUser = new User({
       first_name,
       last_name,
       email,
-      password: hashedPassword,
+      password: await bcrypt.hash(password, 10),
+      country: selectedCountry._id,
+      currency_id: selectedCountry.currency._id,
+      title,
+      gender,
+      birthdate,
+      role,
     });
 
-    await user.save();
+    await newUser.save();
 
     res.status(201).json({ message: "User created successfully" });
   } catch (error) {

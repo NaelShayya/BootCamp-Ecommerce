@@ -6,10 +6,17 @@ const countrySchema = new Schema({
     type: String,
     required: true,
   },
-
   currency: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Currency",
+    type: {
+      name: {
+        type: mongoose.Schema.Types.Mixed,
+        required: true,
+      },
+      symbol: {
+        type: mongoose.Schema.Types.Mixed,
+        required: true,
+      },
+    },
     required: true,
   },
 });
