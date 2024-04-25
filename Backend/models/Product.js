@@ -20,10 +20,14 @@ const productSchema = new Schema({
     data: Buffer,
     contentType: String,
   },
-  category_id: {
-    type: mongoose.Schema.Types.ObjectId,
+  category: {
+    type: mongoose.Schema.Types.Mixed,
     ref: "Category",
-    required: false,
+    required: true,
+  },
+  purchasedBy: {
+    type: mongoose.Schema.Types.Mixed,
+    ref: "User",
   },
   created_at: {
     type: Date,

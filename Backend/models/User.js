@@ -19,7 +19,6 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-
   title: {
     type: String,
     enum: ["Mr.", "Mrs.", "Ms."],
@@ -51,6 +50,13 @@ const userSchema = new Schema({
     enum: ["blocked", "unblocked"],
     default: "unblocked",
   },
+  purchased_products: [
+    {
+      type: Schema.Types.Mixed,
+      ref: "Product",
+    },
+  ],
+
   created_at: {
     type: Date,
     default: Date.now,
