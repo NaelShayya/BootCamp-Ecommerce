@@ -15,7 +15,7 @@ import orderRoutes from "./routes/orderRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
 
 import dotenv from "dotenv";
-import productRoutes from "./routes/productRoutes.js"
+import productRoutes from "./routes/productRoutes.js";
 dotenv.config();
 
 const app = express();
