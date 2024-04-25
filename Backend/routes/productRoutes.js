@@ -9,9 +9,10 @@ import {
 } from "../controllers/productController.js";
 import authMiddleware from "../middlewares/authMiddleware.js";
 
+import {validateCreateProduct} from "../validators/productValidator.js"
 const router = express.Router();
 
-router.post("/create", createProduct);
+router.post("/create",validateCreateProduct, createProduct);
 router.get("/getAllProducts", getAllProducts);
 router.get("/getAllProductsForUser", authMiddleware, getAllProductsForUser);
 router.get("/:identifier", getProduct);
