@@ -15,7 +15,7 @@ import orderRoutes from "./routes/orderRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
 
 import dotenv from "dotenv";
-
+import productRoutes from "./routes/productRoutes.js"
 dotenv.config();
 
 const app = express();
@@ -47,6 +47,10 @@ app.use(passport.session());
 
 // Initialize Passport
 initializePassport(passport);
+
+app.get("/", (req, res) => {
+  res.send("Welcome to the root URL!");
+});
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
