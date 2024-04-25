@@ -4,7 +4,7 @@ import {
   fetchCountriesFromDB,
 } from "../controllers/countryController.js";
 
-import {validateCreateCountry} from "../validators/countryValidator.js"
+import { validateCreateCountry } from "../validators/countryValidator.js";
 
 const router = express.Router();
 
