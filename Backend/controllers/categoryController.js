@@ -54,7 +54,9 @@ const getCategoryProducts = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server Error" });
+    console.log(res);
   }
+
 };
 
 export { createCategory, getAllCategories, getCategoryProducts };
