@@ -6,11 +6,7 @@ const transactionSchema = new mongoose.Schema({
     ref: "User", // Reference to the User model
     required: true,
   },
-  product: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Product",
-    required: true,
-  },
+
   payment: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Payment",
