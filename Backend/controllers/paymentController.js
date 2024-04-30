@@ -1,38 +1,50 @@
 import Payment from "../models/Payment.js";
 import Transaction from "../models/Transaction.js";
+import Order from "../models/Order.js";
+import User from "../models/User.js";
 import Product from "../models/Product.js";
-import User from "../models/User.js"; // Import User model
 
 const createPayment = async (req, res) => {
   try {
-    const { user, productId, amount } = req.body;
+    const { user, orderId, amount } = req.body;
 
-    // Create a new payment record
+    // Find the order
+    const order = await Order.findById(orderId).populate("products");
+
+    if (!order) {
+      return res.status(404).json({ message: "Order not found" });
+    }
+
+    const totalAmount = order.totalAmount;
+
     const newPayment = new Payment({
       user,
-      amount,
+      amount: totalAmount,
     });
 
     await newPayment.save();
 
-    // Create a new transaction record
     const newTransaction = new Transaction({
       user,
-      product: productId, // Assuming productId is passed in the request body
-      payment: newPayment._id, // Link the transaction to the newly created payment
+      order: orderId,
+      payment: newPayment._id,
     });
 
     await newTransaction.save();
 
-    // Update the product to indicate that it has been purchased by the user
-    await Product.findByIdAndUpdate(productId, {
-      $push: { purchasedBy: user },
+    await Order.findByIdAndUpdate(orderId, { status: "completed" });
+
+    await User.findByIdAndUpdate(user, {
+      $push: { purchased_products: { $each: order.products } },
     });
 
-    // Update the user to store the purchased product
-    await User.findByIdAndUpdate(user, {
-      $push: { purchased_products: productId },
-    });
+    await Promise.all(
+      order.products.map(async (product) => {
+        await Product.findByIdAndUpdate(product._id, {
+          $push: { purchasedBy: user },
+        });
+      })
+    );
 
     res.status(201).json({
       message: "Payment created successfully",
