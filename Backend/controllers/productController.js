@@ -36,15 +36,8 @@ const createProduct = async (req, res) => {
 
 const getAllProducts = async (req, res) => {
   try {
-    if (req.user.role === "admin") {
-      // Fetch all products for admin
-      const products = await Product.find();
-      return res.status(200).json({ products });
-    } else {
-      // Fetch purchased products for user
-      const products = await Product.find({ purchasedBy: req.user.userId });
-      return res.status(200).json({ products });
-    }
+    const products = await Product.find();
+    return res.status(200).json({ products });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server Error" });
