@@ -1,0 +1,112 @@
+/* src/App.css */
+
+.app {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f8f8f8;
+  }
+  
+  .upper-left-circle {
+    position: absolute;
+    top: -290px;
+    left: -150px;
+    width: 700px;
+    height: 700px;
+    background: #ffebeb;
+    border-radius: 50%;
+    z-index: 0;
+  }
+  
+  .login-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 100%;
+    width: 450px;
+    z-index: 1;
+  }
+  
+  .login-form {
+    width: 100%;
+  }
+  
+  .login-form h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  
+ /* Adjusted Label and Input Styling */
+.form-group label {
+  display: block;
+  margin-bottom: 8px; /* More space between the label and input */
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 20px; /* Adjust radius as desired */
+}
+
+  .button-group {
+    display: flex;
+    flex-direction: column; /* Stacks elements vertically */
+    align-items: center; /* Centers the "or" text */
+    gap: 10px; /* Space between each element */
+    margin-top: 15px; /* Adjust spacing from the form above */
+  }
+  
+  
+  .btn-signup,
+  .btn-join {
+    flex: 1;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 85px;
+    cursor: pointer;
+    margin: 10px 0;
+    font-weight: bold;
+    background: #ff3b30;
+    color: #fff;
+  }
+  
+
+  .or-text {
+    text-align: center;
+    padding: 0 10px; /* Adjust the padding as needed */
+    font-weight: bold;
+  }
+  
+  .bottom-right-illustration {
+    position: absolute;
+    top: 320px;
+    right: 150px;
+    width: 400px; /* Adjust according to your image size */
+    height: 200px;
+    z-index: 0; /* Adjust z-index to be above or below elements as needed */
+  }
+  
+  
+  .bottom-right-illustration img {
+    max-width: 100%;
+  }
+  

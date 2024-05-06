@@ -25,6 +25,7 @@ const Layout = () => {
           </li>
         </ul>
       </nav>
+      {/* This is where the content for the current route will be rendered. */}
       <Outlet />
     </>
   )
