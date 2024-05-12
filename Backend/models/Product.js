@@ -1,4 +1,7 @@
 import mongoose from "mongoose";
+import Category from "./Category.js";
+import User from "./User.js";
+
 const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
@@ -15,19 +18,17 @@ const productSchema = new Schema({
     required: true,
     unique: true,
   },
-  description: String,
+  description: {
+    String,
+  },
   product_image: {
     data: Buffer,
     contentType: String,
   },
   category: {
     type: mongoose.Schema.Types.Mixed,
-    ref: "Category",
+    ref: Category,
     required: true,
-  },
-  purchasedBy: {
-    type: mongoose.Schema.Types.Mixed,
-    ref: "User",
   },
   created_at: {
     type: Date,

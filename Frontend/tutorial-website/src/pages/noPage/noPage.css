@@ -1,0 +1,35 @@
+.no-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffffff; /* White background color */
+}
+
+.no-page-content {
+  text-align: center;
+}
+
+.no-page-title {
+  font-size: 8rem; /* Larger font size for 404 */
+  color: #ff0000; /* Red text color */
+  margin: 0;
+  animation: pulse 1.5s ease infinite; /* Pulse animation */
+}
+
+.no-page-text {
+  font-size: 3rem;
+  color: #ff0000; /* Red text color */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

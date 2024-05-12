@@ -1,16 +1,19 @@
 import mongoose from "mongoose";
+import User from "../models/User.js";
+import Product from "../models/Product.js";
+
 const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
-  user: {
+  userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    ref: User,
     required: true,
   },
   products: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Product",
+      ref: Product,
       required: true,
     },
   ],

@@ -21,7 +21,15 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
+
+// Handle preflight requests
+app.options("*", cors());
+
 connectDB();
 
 app.use(
