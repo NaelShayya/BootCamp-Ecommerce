@@ -1,6 +1,15 @@
-import { Outlet, Link } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Layout = () => {
+  const handleLogout = () => {
+    sessionStorage.removeItem("token");
+    window.location.href = "/";
+  };
+
+  // Check if the user is authenticated based on the presence of the token
+  const isAuthenticated = sessionStorage.getItem("token") !== null;
+
   return (
     <>
       <nav>
@@ -8,27 +17,36 @@ const Layout = () => {
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li>
-            <Link to="/Login">Login</Link>
-          </li>
-          <li>
-            <Link to="/Signup">Signup</Link>
-          </li>
-          <li>
-            <Link to="/Cart">Cart</Link>
-          </li>
-          <li>
-            <Link to="/Explore">Explore</Link>
-          </li>
-          <li>
-            <Link to="/Course">Course</Link>
-          </li>
+          {!isAuthenticated && (
+            <>
+              <li>
+                <Link to="/login">Login</Link>
+              </li>
+              <li>
+                <Link to="/signup">Signup</Link>
+              </li>
+            </>
+          )}
+          {isAuthenticated && (
+            <>
+              <li>
+                <Link to="/cart">Cart</Link>
+              </li>
+              <li>
+                <Link to="/explore">Explore</Link>
+              </li>
+              <li>
+                <Link to="/course">Course</Link>
+              </li>
+              <li>
+                <button onClick={handleLogout}>Logout</button>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
-      {/* This is where the content for the current route will be rendered. */}
-      <Outlet />
     </>
-  )
+  );
 };
 
 export default Layout;

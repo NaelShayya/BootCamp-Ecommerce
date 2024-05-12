@@ -2,6 +2,8 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 import Country from "../models/Country.js";
+import nodemailer from "nodemailer";
+import crypto from "crypto";
 
 const register = async (req, res) => {
   try {
@@ -79,6 +81,7 @@ const login = async (req, res) => {
       country: user.country,
       token,
     };
+    console.log("Token:", token);
 
     res.status(200).json({ user: userDto });
   } catch (error) {
@@ -87,4 +90,45 @@ const login = async (req, res) => {
   }
 };
 
-export { register, login };
+const forgotPassword = async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Generate a new random password
+    const newPassword = crypto.randomBytes(8).toString("hex");
+
+    // Update user's password in the database
+    user.password = await bcrypt.hash(newPassword, 10);
+    await user.save();
+
+    // Send the new password to the user's email
+    const transporter = nodemailer.createTransport({
+      host: "smtp.office365.com",
+      port: 587,
+      secure: false,
+      auth: {
+        user: "email@example.com",
+        pass: "password",
+      },
+    });
+
+    await transporter.sendMail({
+      from: "email@example.com",
+      to: user.email,
+      subject: "New Password",
+      html: `<p>Your new password is: ${newPassword}</p>`,
+    });
+
+    res.status(200).json({ message: "New password sent to your email" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server Error" });
+  }
+};
+
+export { register, login, forgotPassword };

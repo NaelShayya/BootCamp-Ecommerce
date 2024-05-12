@@ -3,7 +3,7 @@ import Product from "../models/Product.js";
 
 const createOrder = async (req, res) => {
   try {
-    const { user, products } = req.body;
+    const { userId, products } = req.body;
 
     const productsDetails = await Product.find({ _id: { $in: products } });
 
@@ -13,7 +13,7 @@ const createOrder = async (req, res) => {
     );
 
     const newOrder = new Order({
-      user,
+      userId,
       products,
       totalAmount,
     });
@@ -29,4 +29,27 @@ const createOrder = async (req, res) => {
   }
 };
 
-export { createOrder };
+const getOrderDetails = async (req, res) => {
+  try {
+    const decodedToken = req.user; // Use decoded token from the request object
+    const userId = decodedToken.userId;
+
+    const orders = await Order.find({
+      userId,
+      status: { $in: ["pending"] },
+    }).populate("products");
+
+    console.log("Orders:", orders);
+
+    if (!orders || orders.length === 0) {
+      return res.status(404).json({ message: "No orders found" });
+    }
+
+    res.status(200).json({ orders });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server Error" });
+  }
+};
+
+export { createOrder, getOrderDetails };

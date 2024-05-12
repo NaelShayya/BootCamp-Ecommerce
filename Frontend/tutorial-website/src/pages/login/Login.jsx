@@ -1,36 +1,46 @@
-import React, { useState } from 'react';
-import './login.css';
-import illustration from '../../assets/Signup.png';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import "./login.css";
+import illustration from "../../assets/Signup.png";
+import { useNavigate } from "react-router-dom";
+
 function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
+
   const handleLogin = async (event) => {
     event.preventDefault();
-    setError(''); // Reset error message
+    setError(""); // Reset error message
 
     try {
-      const response = await fetch('http://localhost:3001/api/auth/login', {
-        method: 'POST',
+      const response = await fetch("http://localhost:3001/api/auth/login", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
       });
 
       if (!response.ok) {
-        throw new Error('Authentication failed');
+        throw new Error("Authentication failed");
       }
 
-      const data = await response.json();
-      navigate('/home');
+      const responseData = await response.json();
+      console.log("Response Data:", responseData);
 
-      // Redirect or update state to indicate successful login
+      // Access token from the nested user object
+      const token = responseData.user.token;
+
+      sessionStorage.setItem("token", token);
+      navigate("/home");
     } catch (err) {
-      setError(err.message || 'An error occurred during login.');
+      setError(err.message || "An error occurred during login.");
     }
+  };
+
+  const handleForgotPassword = () => {
+    navigate("/forgotPassword");
   };
 
   return (
@@ -57,12 +67,21 @@ function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <small
+                className="forgot-password-link"
+                onClick={handleForgotPassword}>
+                Forgot Password?
+              </small>
             </div>
             {error && <div className="error-message">{error}</div>}
             <div className="button-group">
-              <button className="btn-signup" type="submit">Login</button>
+              <button className="btn-signup" type="submit">
+                Login
+              </button>
               <div className="or-text">or</div>
-              <button className="btn-join" type="button">Signup</button>
+              <button className="btn-join" type="button">
+                Signup
+              </button>
             </div>
           </form>
         </div>
