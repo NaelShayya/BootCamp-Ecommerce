@@ -112,8 +112,8 @@ const forgotPassword = async (req, res) => {
       port: 587,
       secure: false,
       auth: {
-        user: "razan.albitar@mubs.edu.lb",
-        pass: "851197851997Raz",
+        user: "email@example.com",
+        pass: "password",
       },
     });
 
