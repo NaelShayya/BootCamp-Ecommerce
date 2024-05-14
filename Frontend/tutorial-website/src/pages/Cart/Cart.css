@@ -30,6 +30,7 @@ html {
   justify-content: center;
   align-items: center;
   background: white;
+  margin-top: 30px;
 }
 
 .window {
@@ -37,7 +38,7 @@ html {
   width: 90%;
   background: #fff;
   display: flex;
-
+  margin: 20px;
   border-radius: 30px;
   z-index: 10;
 }
@@ -96,16 +97,16 @@ html {
   font-size: 16px;
   color: black;
   cursor: pointer;
-  width: 300px; /* Adjust the width as needed */
-  height: 40px; /* Adjust the height as needed */
+  width: 300px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto; /* Center the button horizontally */
+  margin: auto;
   position: absolute;
   bottom: 25px;
   left: 50%;
-  transform: translateX(-50%); /* Center the button horizontally */
+  transform: translateX(-50%);
   transition: all 0.2s ease;
 }
 
@@ -147,7 +148,6 @@ html {
 
 .credit-info-content form {
   margin-top: 20px;
-  /* Ensure relative positioning for absolute positioning of CardNumberElement */
 }
 
 .payment-field {
@@ -165,7 +165,6 @@ html {
   font-size: 16px;
 }
 
-/* Position CardNumberElement */
 .PaymentFieldContainer {
   position: relative;
 }
@@ -184,8 +183,6 @@ html {
   box-shadow: 0 0 3px 2px rgba(50, 100, 200, 0.2);
   transition: box-shadow 150ms ease;
 }
-
-/* Adjust other styles as needed */
 
 .credit-info {
   background: #ff3b30;

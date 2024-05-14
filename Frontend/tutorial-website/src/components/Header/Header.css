@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.header nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.header nav a {
+  text-decoration: none;
+  color: #000;
+  font-size: 1rem;
+}
+.logout {
+  text-decoration: none;
+  color: #000;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+.header .user-actions {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.25rem;
+}
+
+.header .user-actions a.icon {
+  text-decoration: none;
+}
+
+.header nav a.active {
+  color: red;
+}

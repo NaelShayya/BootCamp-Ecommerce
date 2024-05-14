@@ -12,6 +12,7 @@ import productRoutes from "./routes/productRoutes.js";
 import paymentRoutes from "./routes/paymentRoutes.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
+import contactRoutes from "./routes/contactRoutes.js";
 
 import dotenv from "dotenv";
 
@@ -54,6 +55,7 @@ app.use("/api/products", productRoutes);
 app.use("/api/category", categoryRoutes);
 app.use("/api/payment", paymentRoutes);
 app.use("/api/order", orderRoutes);
+app.use("/api/contact", contactRoutes);
 
 const port = process.env.PORT || 6001;
 app.listen(port, () => console.log(`Server running on port ${port}`));
