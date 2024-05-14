@@ -5,6 +5,8 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 import "./Cart.css";
 
 const stripePromise = loadStripe(
@@ -13,10 +15,14 @@ const stripePromise = loadStripe(
 
 const CheckoutPage = () => {
   return (
-    <Elements stripe={stripePromise}>
-      <CheckoutForm />
-      <ToastContainer />
-    </Elements>
+    <>
+      <Header />
+      <Elements stripe={stripePromise}>
+        <CheckoutForm />
+        <ToastContainer />
+      </Elements>
+      <Footer />
+    </>
   );
 };
 

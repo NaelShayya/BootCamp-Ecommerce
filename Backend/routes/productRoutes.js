@@ -14,7 +14,7 @@ import { validateCreateProduct } from "../validators/productValidator.js";
 const router = express.Router();
 
 router.post("/create", validateCreateProduct, createProduct);
-router.get("/getAllProducts", authMiddleware, checkAdmin, getAllProducts);
+router.get("/getAllProducts", getAllProducts);
 router.get("/getAllProductsForUser", authMiddleware, getAllProductsForUser);
 router.get("/:identifier", getProduct);
 router.delete("/:identifier", deleteProduct);
