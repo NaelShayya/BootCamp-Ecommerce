@@ -9,14 +9,14 @@ export const submitContactForm = async (req, res) => {
       port: 587,
       secure: false,
       auth: {
-        user: "razan.albitar@mubs.edu.lb",
-        pass: "851197851997Raz",
+        user: "email@example.com",
+        pass: "password",
       },
     });
 
     const mailOptions = {
-      from: "razan.albitar@mubs.edu.lb",
-      to: "razan.albitar@mubs.edu.lb",
+      from: "email@example.com",
+      to: "email@example.com",
       subject: "New Contact Form Submission",
       html: `
     <h2 style="text-align:center">Contact Form Submission</h2>
