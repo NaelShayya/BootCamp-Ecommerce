@@ -14,14 +14,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-
-          <Route path="Cart" element={<Cart />} />
-          <Route path="Explore" element={<Explore />} />
-          <Route path="Course" element={<Course />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="explore" element={<Explore />} />
+          <Route path="course" element={<Course />} />
           <Route path="*" element={<NoPage />} />
         </Route>
-        <Route path="Login" element={<Login />} />
-        <Route path="Signup" element={<Signup />} />
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signup />} />
       </Routes>
     </BrowserRouter>
   );
