@@ -1,4 +1,5 @@
-import { React, useEffect, useState } from 'react';
+import { React, useEffect, useState  } from 'react';
+import { Link } from 'react-router-dom';
 import './home.css';
 import course1 from '../../assets/course1.jpg';
 import course2 from '../../assets/course2.jpg';
@@ -158,7 +159,7 @@ const Home = () => {
                 padding: '8px 16px',
                 minHeight: 'auto',
                 '&:hover': {
-                  backgroundColor: '#f0f0f0',
+                  backgroundColor: '#ffe0e0',
                 },
                 '&.Mui-selected': {
                   borderColor: '#ff282e',
@@ -187,7 +188,12 @@ const Home = () => {
           ))}
         </div>
       </div>
+      <div className="view-courses">
+        
+        <Link to="/course" className="buy-button">View Courses</Link>
+      </div>
     </div>
+    
   );
 }
 
