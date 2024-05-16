@@ -16,12 +16,13 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
       
-        <Route path="Cart" element={<Cart />} />
+        
         <Route path="Explore" element={<Explore />} />
         <Route path="Course" element={<Course />} />
         <Route path="contactus" element={<ContactPage />} />
         <Route path="*" element={<NoPage />} />
       </Route>
+      <Route path="Cart" element={<Cart />} />
       <Route path="Login" element={<Login />} />
         <Route path="Signup" element={<Signup />} />
     </Routes>
