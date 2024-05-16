@@ -23,8 +23,9 @@
   flex: 0 0 auto; /* Do not grow or shrink */
   width: 300px;
   border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden; /* Important for image handling */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  overflow: hidden; 
+   transition: box-shadow 0.3s ease; /* Smooth transitiont for image handling */
   background-color: #fff;
 }
 
@@ -54,7 +55,17 @@
   margin-bottom: 10px;
   color: #333;
 }
+.product-box:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover for emphasis */
+}
 
+.product-image {
+  transition: transform 0.3s ease; /* Smooth scaling transition */
+}
+
+.product-image:hover {
+  transform: scale(1.05); /* Scale the image up */
+}
 .buy-button {
   background-color: #ff282e;
   color: white;
@@ -116,7 +127,12 @@
 .icon {
   font-size: 20px; /* Adjust size as needed */
 }
+.icon2 {
 
+  color: gray; /* Color of the icon */
+  font-size: 20px; /* Icon size */
+  margin-left: 40px;
+}
 @media (max-width: 768px) {
   .category-container {
     justify-content: center;
@@ -145,19 +161,28 @@
   display: flex;
   align-items: center;
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 30px;
+  height: 150px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   overflow: hidden;
-  width: 45%; /* Adjust based on your layout */
+  width: 40%; /* Adjust based on your layout */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transitions for shadow and transform */
+  cursor: pointer; /* Changes the cursor to indicate interactivity */
+}
+.course-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Enhanced shadow for a "lifted" effect */
+  transform: scale(1.03); /* Slightly scale up the card */
 }
 
 .course-image {
   width: 120px;
-  height: 80px;
+  height: 100%;
   object-fit: cover; /* Ensure the image covers the area without distorting */
 }
 
 .course-content {
+  display: flex;
+  flex-direction: row;
   padding: 10px;
   width: 100%;
 }
@@ -194,7 +219,7 @@
 .center-button {
   width: 10%; /* Set width to 10% of its container */
   padding: 10px;
-  background-color: #4CAF50;
+  background-color: #ff282e;
   color: white;
   border: none;
   border-radius: 5px;

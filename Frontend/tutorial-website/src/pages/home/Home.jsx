@@ -11,7 +11,7 @@ import feedbackUser2 from '../../assets/feedbackUser2.jpg';
 import feedbackUser3 from '../../assets/feedbackUser3.jpg';
 import { Tabs, Tab } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartLine, faCode, faCamera, faRobot, faGlobeAsia, faBuilding, faBook } from '@fortawesome/free-solid-svg-icons';
+import { faChartLine, faCode, faCamera, faRobot, faGlobeAsia, faBuilding, faBook, faBookmark } from '@fortawesome/free-solid-svg-icons';
 const Home = () => {
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState('');
@@ -172,29 +172,33 @@ const Home = () => {
           <div class="course-card">
             <img src={course1} alt="Mastering Photoshop" class="course-image" />
             <div class="course-content">
+            <div className='course-card-details'>
               <h3 class="course-title">Mastering Photoshop</h3>
               <p class="instructor-name">Laura Johnson</p>
-              <div class="progress">
-                <div className="progress-bar" style={{ width: '85%' }}>85% complete</div>
-
               </div>
+              <FontAwesomeIcon icon={faBookmark} className="icon2"/>
+         
+
+            
             </div>
           </div>
           <div class="course-card">
-            <img src="path_to_marketing_course_image.jpg" alt="Digital Marketing Strategies" class="course-image" />
+            <img src={course1} alt="Mastering Photoshop" class="course-image" />
             <div class="course-content">
-              <h3 class="course-title">Digital Marketing Strategies</h3>
-              <p class="instructor-name">Michael Brown</p>
-              <div class="progress">
-                <div className="progress-bar" style={{ width: '85%' }}>85% complete</div>
-
+              <div className='course-card-details'>
+              <h3 class="course-title">Mastering Photoshop</h3>
+              <p class="instructor-name">Laura Johnson</p>
               </div>
+              <FontAwesomeIcon icon={faBookmark} className="icon2"/>
+         
+
+            
             </div>
           </div>
         </div>
       </div>
 <div className="view-courses">
-      <button className="center-button" >Click Me!</button>
+      <button className="center-button" >View All Courses</button>
     </div>
     </div>
   );

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './courseDetails.css';
+import course1 from '../../assets/course1.jpg';
+import course2 from '../../assets/course2.jpg';
+import course3 from '../../assets/course3.jpg';
 import course4 from '../../assets/course4.jpg';
 import course5 from '../../assets/course5.jpg';
 

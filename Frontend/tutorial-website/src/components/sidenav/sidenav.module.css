@@ -13,7 +13,6 @@
   align-items: center;
 }
 
-
 .navList {
   list-style: none;
   padding: 0;
@@ -24,9 +23,10 @@
   display: flex; /* Enables flexbox layout */
   align-items: center; /* Centers items vertically */
   justify-content: center; /* Centers items horizontally */
-  color: white; /* Sets text color to white */
   width: 100%;
-  margin-bottom: 30px ;
+  margin-bottom: 30px;
+  color: white; /* Sets text color to white */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .navLink {
@@ -35,6 +35,13 @@
   align-items: center;
   text-decoration: none;
   color: black;
+  width: 100%; /* Ensures full width for clickable area */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.navItem:hover, .navLink:hover {
+  background-color: #e0e0e0; /* Light grey background on hover */
+  cursor: pointer; /* Change cursor to pointer to indicate clickable */
 }
 
 .icon {
