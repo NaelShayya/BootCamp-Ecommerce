@@ -4,7 +4,8 @@ import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
 import Cart from "./pages/Cart";
 import Explore from "./pages/Explore";
-import Course from "./pages/Course";
+import Course from "./pages/courses/Course";
+import CourseDetails from "./pages/courseDetails/CourseDetails";
 import Layout from "./pages/layout/Layout";
 import NoPage from "./pages/noPage";
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="cart" element={<Cart />} />
           <Route path="explore" element={<Explore />} />
           <Route path="course" element={<Course />} />
+          <Route path="/course/:slug" element={<CourseDetails />} />
           <Route path="*" element={<NoPage />} />
         </Route>
         <Route path="login" element={<Login />} />
