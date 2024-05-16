@@ -1,4 +1,4 @@
-import { React, useEffect, useState  } from 'react';
+import { React, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './home.css';
 import course1 from '../../assets/course1.jpg';
@@ -18,15 +18,15 @@ const Home = () => {
 
   // Function to convert Buffer to base64 string
   const bufferToBase64 = (buffer) => {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      resolve(reader.result);
-    };
-    reader.onerror = reject;
-    reader.readAsDataURL(new Blob([buffer]));
-  });
-};
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        resolve(reader.result);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(new Blob([buffer]));
+    });
+  };
   // useEffect(() => {
   //   // Fetch products from the API
   //   fetch('http://localhost:3001/api/products/getAllProducts')
@@ -47,42 +47,41 @@ const Home = () => {
   //         data: index === 0 ? course1 : course2;
   //       }
   //       }));
-        
+
 
   //       setProducts(updatedProducts);
   //     })
   //     .catch(error => console.error('Error fetching products:', error));
 
-      useEffect(() => {
-  // Fetch products from the API
-  fetch('http://localhost:3001/api/products/getAllProducts')
-  .then(response => response.json())
-  .then(data => {
-    console.log('Fetched products:', data.products);
+  useEffect(() => {
+    // Fetch products from the API
+    fetch('http://localhost:3001/api/products/getAllProducts')
+      .then(response => response.json())
+      .then(data => {
+        console.log('Fetched products:', data.products);
 
-    // Extract the products from the response
-    const products = data.products;
+        // Extract the products from the response
+        const products = data.products;
 
-    // Define an array of images
-    const productImages = [course1, course2, course3, course4, course5];
+        // Define an array of images
+        const productImages = [course1, course2, course3, course4, course5];
 
-    // Slice the array to get only the first 5 products
-    const firstFiveProducts = data.products.slice(0, 5);
+        // Slice the array to get only the first 4 products
+        const firstFourProducts = data.products.slice(0, 4);
 
-    // Map over the products and assign specific images in order
-    const updatedProducts = firstFiveProducts.map((product, index) => ({
-      ...product,
-      product_image: {
-        contentType: 'image/jpeg', // Assuming the contentType is always jpeg
-        data: productImages[index % productImages.length] // Cycling through the productImages array
-      }
-    }));
+        // Map over the products and assign specific images in order
+        const updatedProducts = firstFourProducts.map((product, index) => ({
+          ...product,
+          product_image: {
+            contentType: 'image/jpeg', // Assuming the contentType is always jpeg
+            data: productImages[index % productImages.length] // Cycling through the productImages array
+          }
+        }));
 
-    // Update the state with the mapped products
-    setProducts(updatedProducts);
-  })
-  .catch(error => console.error('Error fetching products:', error));
-
+        // Update the state with the mapped products
+        setProducts(updatedProducts);
+      })
+      .catch(error => console.error('Error fetching products:', error));
 
     // Fetch categories from the API
     fetch('http://localhost:3001/api/category/getAll')
@@ -93,6 +92,7 @@ const Home = () => {
       })
       .catch(error => console.error('Error fetching categories:', error));
   }, []);
+
 
   const feedbacks = [
     {
@@ -126,13 +126,7 @@ const Home = () => {
           {products.map(product => (
             <div key={product.id} className="product-box">
               <div className="product-image-container">
-                {product.product_image && product.product_image.contentType && product.product_image.data &&
-                  <img 
-                  src={product.product_image.data} 
-                  alt={product.name} 
-                  className="product-image" 
-                />
-                }
+                <img src={product.product_image.data} alt={product.name} className="product-image" />
               </div>
               <div className="product-details">
                 <div className="product-name">{product.name}</div>
@@ -143,57 +137,65 @@ const Home = () => {
             </div>
           ))}
         </div>
+
       </div>
-      <div className="categories">
+      <div className="category-container">
         <h2>Categories</h2>
-        <Tabs variant="fullWidth">
-          {categories.map(category => (
-            <Tab 
-              key={category.id} 
-              label={category.name} 
-              sx={{
-                border: '1px solid #ddd',
-                borderRadius: '4px',
-                margin: '0 4px',
-                textTransform: 'none',
-                padding: '8px 16px',
-                minHeight: 'auto',
-                '&:hover': {
-                  backgroundColor: '#ffe0e0',
-                },
-                '&.Mui-selected': {
-                  borderColor: '#ff282e',
-                  backgroundColor: '#ffe5e7',
-                  color: '#ff282e',
-                }
-              }}
-            />
-          ))}
-        </Tabs>
-      </div>
-      <div className="customer-feedback">
-        <h2>Customer Feedback</h2>
-        <div className="feedback-container">
-          {feedbacks.map(feedback => (
-            <div key={feedback.id} className="feedback-box">
-              <div className="feedback-image-container">
-                <img src={feedback.imageUrl} alt={feedback.user} className="feedback-image" />
-              </div>
-              <div className="feedback-details">
-                <div className="feedback-user">{feedback.user}</div>
-                <div className="feedback-message">{feedback.message}</div>
-                <div className="feedback-rating">Rating: {feedback.rating}</div>
-              </div>
-            </div>
-          ))}
+        <div className="inner">
+          <button className="category-tab">
+            <span className="icon">📈</span>Finance
+          </button>
+          <button className="category-tab">
+            <span className="icon">💻</span>Programming
+          </button>
+          <button className="category-tab">
+            <span className="icon">📷</span>Photography
+          </button>
+          <button className="category-tab">
+            <span className="icon">🤖</span>Artificial
+          </button>
+          <button className="category-tab">
+            <span className="icon">🌐</span>Web Development
+          </button>
+          <button className="category-tab">
+            <span className="icon">🏢</span>Business
+          </button>
+          <button className="category-tab">
+            <span className="icon">📜</span>History
+          </button>
         </div>
       </div>
-      <div className="view-courses">
-        
-        <Link to="/course" className="buy-button">View Courses</Link>
+      <div class="learning-container">
+        <h2>Saved</h2>
+        <div className="inner">
+          <div class="course-card">
+            <img src={course1} alt="Mastering Photoshop" class="course-image" />
+            <div class="course-content">
+              <h3 class="course-title">Mastering Photoshop</h3>
+              <p class="instructor-name">Laura Johnson</p>
+              <div class="progress">
+                <div className="progress-bar" style={{ width: '85%' }}>85% complete</div>
+
+              </div>
+            </div>
+          </div>
+          <div class="course-card">
+            <img src="path_to_marketing_course_image.jpg" alt="Digital Marketing Strategies" class="course-image" />
+            <div class="course-content">
+              <h3 class="course-title">Digital Marketing Strategies</h3>
+              <p class="instructor-name">Michael Brown</p>
+              <div class="progress">
+                <div className="progress-bar" style={{ width: '85%' }}>85% complete</div>
+
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+<div className="view-courses">
+      <button className="center-button" >Click Me!</button>
     </div>
-    
+    </div>
   );
 }
 
