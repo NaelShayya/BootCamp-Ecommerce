@@ -83,13 +83,17 @@
   display: flex;
   justify-content: space-around;
   flex-direction: column;
-  padding: 10px 0;
+  padding: 30px 0;
+
  width:95%;
   flex-wrap: wrap; /* Allows wrapping on smaller screens */
   background-color: #fff; /* Optional: sets background color of the entire container */
 }
 
 .category-tab {
+  display: flex;
+  margin: 10px;
+  flex-direction: column;
   background-color: #f9f9f9;
   border: none;
   border-radius: 20px;
@@ -129,10 +133,13 @@
   flex-direction: column;
   margin-bottom: 50px;
 }
-.inner{
+.inner {
   display: flex;
   flex-direction: row;
+  gap: 50px; /* Adjust this value to increase or decrease spacing between tabs */
+  flex-wrap: wrap; /* Wraps items to the next line if not enough space */
 }
+
 
 .course-card {
   display: flex;

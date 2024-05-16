@@ -21,8 +21,12 @@
 }
 
 .navItem {
+  display: flex; /* Enables flexbox layout */
+  align-items: center; /* Centers items vertically */
+  justify-content: center; /* Centers items horizontally */
+  color: white; /* Sets text color to white */
   width: 100%;
-  margin: 10px 0;
+  margin-bottom: 30px ;
 }
 
 .navLink {

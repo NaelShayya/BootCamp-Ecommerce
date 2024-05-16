@@ -10,7 +10,8 @@ import feedbackUser1 from '../../assets/feedbackUser1.jpg';
 import feedbackUser2 from '../../assets/feedbackUser2.jpg';
 import feedbackUser3 from '../../assets/feedbackUser3.jpg';
 import { Tabs, Tab } from '@mui/material';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChartLine, faCode, faCamera, faRobot, faGlobeAsia, faBuilding, faBook } from '@fortawesome/free-solid-svg-icons';
 const Home = () => {
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState('');
@@ -143,25 +144,25 @@ const Home = () => {
         <h2>Categories</h2>
         <div className="inner">
           <button className="category-tab">
-            <span className="icon">📈</span>Finance
+            <FontAwesomeIcon icon={faChartLine} className="icon"/> Finance
           </button>
           <button className="category-tab">
-            <span className="icon">💻</span>Programming
+            <FontAwesomeIcon icon={faCode} className="icon"/> Programming
           </button>
           <button className="category-tab">
-            <span className="icon">📷</span>Photography
+            <FontAwesomeIcon icon={faCamera} className="icon"/> Photography
           </button>
           <button className="category-tab">
-            <span className="icon">🤖</span>Artificial
+            <FontAwesomeIcon icon={faRobot} className="icon"/> Artificial Intelligence
           </button>
           <button className="category-tab">
-            <span className="icon">🌐</span>Web Development
+            <FontAwesomeIcon icon={faGlobeAsia} className="icon"/> Web Development
           </button>
           <button className="category-tab">
-            <span className="icon">🏢</span>Business
+            <FontAwesomeIcon icon={faBuilding} className="icon"/> Business
           </button>
           <button className="category-tab">
-            <span className="icon">📜</span>History
+            <FontAwesomeIcon icon={faBook} className="icon"/> History
           </button>
         </div>
       </div>
