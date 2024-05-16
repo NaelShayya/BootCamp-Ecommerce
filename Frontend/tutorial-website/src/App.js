@@ -7,6 +7,7 @@ import Explore from "./pages/Explore"
 import Course from "./pages/Course"
 import Layout from "./pages/layout/Layout"
 import NoPage from "./pages/noPage/noPage"
+import ContactPage from "./pages/ContactUs/contactUs";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="Cart" element={<Cart />} />
         <Route path="Explore" element={<Explore />} />
         <Route path="Course" element={<Course />} />
+        <Route path="contactus" element={<ContactPage />} />
         <Route path="*" element={<NoPage />} />
       </Route>
       <Route path="Login" element={<Login />} />
