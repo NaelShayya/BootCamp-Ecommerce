@@ -7,10 +7,8 @@ import Cart from "./pages/Cart/Cart";
 import Explore from "./pages/Explore";
 import Course from "./pages/courses/Course";
 import CourseDetails from "./pages/courseDetails/CourseDetails";
-import Layout from "./pages/Layout";
+import Layout from "./pages/layout/Layout";
 import NoPage from "./pages/noPage/noPage";
-import ContactPage from "./pages/ContactUs/contactUs";
-import ForgotPassword from "./pages/forget-password/forgetPassword";
 
 function App() {
   return (
@@ -25,7 +23,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="explore" element={<Explore />} />
           <Route path="course" element={<Course />} />
-          <Route path="/course/:slug" element={<CourseDetails />} />
+          <Route path="course/:slug" element={<CourseDetails />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

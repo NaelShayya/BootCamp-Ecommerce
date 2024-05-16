@@ -10,7 +10,16 @@ import feedbackUser1 from "../../assets/feedbackUser1.jpg";
 import feedbackUser2 from "../../assets/feedbackUser2.jpg";
 import feedbackUser3 from "../../assets/feedbackUser3.jpg";
 import { Tabs, Tab } from "@mui/material";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChartLine,
+  faCode,
+  faCamera,
+  faRobot,
+  faGlobeAsia,
+  faBuilding,
+  faBook,
+} from "@fortawesome/free-solid-svg-icons";
 const Home = () => {
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState("");
@@ -136,30 +145,31 @@ const Home = () => {
       </div>
       <div className="categories">
         <h2>Categories</h2>
-        <Tabs variant="fullWidth">
-          {categories.map((category) => (
-            <Tab
-              key={category.id}
-              label={category.name}
-              sx={{
-                border: "1px solid #ddd",
-                borderRadius: "4px",
-                margin: "0 4px",
-                textTransform: "none",
-                padding: "8px 16px",
-                minHeight: "auto",
-                "&:hover": {
-                  backgroundColor: "#ffe0e0",
-                },
-                "&.Mui-selected": {
-                  borderColor: "#ff282e",
-                  backgroundColor: "#ffe5e7",
-                  color: "#ff282e",
-                },
-              }}
-            />
-          ))}
-        </Tabs>
+        <div className="inner">
+          <button className="category-tab">
+            <FontAwesomeIcon icon={faChartLine} className="icon" /> Finance
+          </button>
+          <button className="category-tab">
+            <FontAwesomeIcon icon={faCode} className="icon" /> Programming
+          </button>
+          <button className="category-tab">
+            <FontAwesomeIcon icon={faCamera} className="icon" /> Photography
+          </button>
+          <button className="category-tab">
+            <FontAwesomeIcon icon={faRobot} className="icon" /> Artificial
+            Intelligence
+          </button>
+          <button className="category-tab">
+            <FontAwesomeIcon icon={faGlobeAsia} className="icon" /> Web
+            Development
+          </button>
+          <button className="category-tab">
+            <FontAwesomeIcon icon={faBuilding} className="icon" /> Business
+          </button>
+          <button className="category-tab">
+            <FontAwesomeIcon icon={faBook} className="icon" /> History
+          </button>
+        </div>
       </div>
       <div className="customer-feedback">
         <h2>Customer Feedback</h2>

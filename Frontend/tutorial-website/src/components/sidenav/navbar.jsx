@@ -6,8 +6,10 @@ import {
   faHome,
   faShoppingCart,
   faUserGraduate,
-  faSave,
-  faUser,
+  faSearch,
+  faEnvelope,
+  faSignOutAlt,
+  faKiwiBird,
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "./sidenav.module.css"; // Ensure CSS module is set up
 
@@ -15,6 +17,25 @@ const SideNav = ({ isAuthenticated, onLogout }) => {
   return (
     <div className={styles.sidebar}>
       <ul className={styles.navList}>
+        <li
+          style={{
+            backgroundColor: "red",
+            borderRadius: "20px",
+            height: "40px",
+            alignItems: "center",
+          }}
+          className={styles.navItem}>
+          <NavLink
+            to="/"
+            className={styles.navLink}
+            activeClassName={styles.active}>
+            <FontAwesomeIcon
+              style={{ color: "white" }}
+              icon={faKiwiBird}
+              className={styles.icon}
+            />
+          </NavLink>
+        </li>
         <li className={styles.navItem}>
           <NavLink
             to="/"
@@ -24,7 +45,6 @@ const SideNav = ({ isAuthenticated, onLogout }) => {
             <span>Home</span>
           </NavLink>
         </li>
-        {/* Additional links with different icons */}
         <li className={styles.navItem}>
           <NavLink
             to="/cart"
@@ -41,6 +61,33 @@ const SideNav = ({ isAuthenticated, onLogout }) => {
             activeClassName={styles.active}>
             <FontAwesomeIcon icon={faUserGraduate} className={styles.icon} />
             <span>Courses</span>
+          </NavLink>
+        </li>
+        <li className={styles.navItem}>
+          <NavLink
+            to="/explore"
+            className={styles.navLink}
+            activeClassName={styles.active}>
+            <FontAwesomeIcon icon={faSearch} className={styles.icon} />
+            <span>Explore</span>
+          </NavLink>
+        </li>
+        <li className={styles.navItem}>
+          <NavLink
+            to="/contact"
+            className={styles.navLink}
+            activeClassName={styles.active}>
+            <FontAwesomeIcon icon={faEnvelope} className={styles.icon} />
+            <span>Contact Us</span>
+          </NavLink>
+        </li>
+        <li className={styles.navItem}>
+          <NavLink
+            to="/logout"
+            className={styles.navLink}
+            activeClassName={styles.active}>
+            <FontAwesomeIcon icon={faSignOutAlt} className={styles.icon} />
+            <span>Logout</span>
           </NavLink>
         </li>
       </ul>
