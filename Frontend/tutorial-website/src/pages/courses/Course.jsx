@@ -39,23 +39,28 @@ const CourseList = () => {
   }
 
   return (
+    <div>
+       <h1 className="course-title">Courses List</h1>
     <div className="course-list">
+      
       {products.map(product => (
-        <div key={product.id} className="card">
-          
-          <img
-            src={product.product_image.data}
-            alt={product.name}
-            // style={{ width: '100%', height: 'auto' }}
-          />
-          <h2>{product.name}</h2>
-          <p>{product.description}</p>
-          <Link to={`/course/${product.slug}`}>
-            <button>View</button>
-          </Link>
+        <div key={product.id} className="product-box">
+          <div className="product-image-container">
+            <img
+              src={product.product_image.data}
+              alt={product.name}
+            />
+          </div>
+          <div className="product-details">
+            <h2 className="product-name">{product.name}</h2>
+            <p className="product-description">{product.description}</p>
+            <Link to={`/course/${product.slug}`}>
+              <button>View</button>
+            </Link>
+          </div>
         </div>
       ))}
-    </div>
+    </div></div>
   );
 };
 

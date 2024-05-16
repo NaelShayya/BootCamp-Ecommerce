@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './courseDetails.css';
+import course1 from '../../assets/course1.jpg';
+import course2 from '../../assets/course2.jpg';
+import course3 from '../../assets/course3.jpg';
 import course4 from '../../assets/course4.jpg';
 import course5 from '../../assets/course5.jpg';
 
@@ -36,45 +39,56 @@ const CourseDetail = () => {
   }, [slug]);
 
   const assignImageToProduct = (product) => {
-  const images = [course1, course2, course3, course4, course5];
-  // Generate a random index within the range of the images array
-  const randomIndex = Math.floor(Math.random() * images.length);
-  const image = images[randomIndex];
-  console.log('Assigned image:', image);
-  return {
-    ...product,
-    image
+    const images = [course1, course2, course3, course4, course5];
+    // Generate a random index within the range of the images array
+    const randomIndex = Math.floor(Math.random() * images.length);
+    const image = images[randomIndex];
+    console.log('Assigned image:', image);
+    return {
+      ...product,
+      image
+    };
   };
-};
-
-
-
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="loading">Loading...</div>;
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <div className="error">{error}</div>;
   }
 
   if (!product) {
-    return <div>No product found</div>;
+    return <div className="no-product">No product found</div>;
   }
 
   return (
-    <div className="course-detail-container">
-      <div className="details-column">
-        <div className="course-details">
-          <h1>{product.name}</h1>
-          <p>{product.description}</p>
-          <p>{product.price}</p>
-        </div>
-      </div>
-      <div className="image-column">
-        <img src={product.image} alt={product.name} className="course-image" />
+    <div>
+    <h1 className="course-title">Course Details</h1> 
+   <div className="course-detail-container">
+    
+  <div className="details-row">
+    <div className="details-column">
+      <div className="course-details">
+        <h1 className="product-name">{product.name}</h1>
+        <div className="product-description">{product.long_description}</div>
+        <div className="product-description">Certification: {product.certification}</div>
+        <div className="product-description">Lessons: {product.lessons}</div>
+        <div className="buy-now-row">
+        <div className="product-price">Price: ${product.price}</div>
+        <button className="buy-now-button">Buy Now</button></div>
       </div>
     </div>
+    <div className="image-column">
+      <img src={product.image} alt={product.name} className="course-image" />
+    </div>
+  </div></div>
+  
+ 
+  
+
+</div>
+
   );
 };
 
