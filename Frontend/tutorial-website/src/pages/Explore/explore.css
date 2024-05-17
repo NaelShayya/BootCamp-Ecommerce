@@ -1,0 +1,114 @@
+.explore-content {
+  text-align: center;
+  padding: 40px;
+  flex: 1; /* Let it grow and take available space */
+  /* overflow-x: hidden;  Hides horizontal scrollbar 
+  transform: scale(0.98);
+  transform-origin: left top;  Keep the content aligned to the top left corner 
+  max-width: 100%; */
+}
+
+.explore{
+  padding-top: 60px;
+  position: absolute;
+  margin-left: 65%;
+  margin-bottom: 400px;
+  width: 300px;
+  height: 200px;
+  margin-bottom: 200px;
+  z-index: 0; /* Adjust z-index to be above or below elements as needed */
+}
+
+.category-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.category-item {
+  margin-right: 20px; /* Adjust spacing between categories */
+}
+
+/* Hide the actual checkbox */
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+
+/* Style for the custom checkbox */
+input[type="checkbox"]+label::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid hsl(345, 100%, 25%); /* Default border color */
+  background-color: white; /* Default background color */
+  border-radius: 4px; /* Rounded corners */
+  margin-right: 8px; /* Adjust spacing between checkbox and label */
+}
+
+/* Style for the tick inside the custom checkbox */
+input[type="checkbox"]:checked+label::before {
+  content: "\2713"; /* Unicode character for checkmark */
+  font-size: 11px; /* Adjust size of checkmark */
+  line-height: 20px; /* Center checkmark vertically */
+  text-align: center; /* Center checkmark horizontally */
+  color: white;
+}
+
+/* Change border color and background color when the checkbox is not checked */
+input[type="checkbox"]+label::before {
+  border: 2px solid hsl(345, 100%, 25%);
+}
+
+/* Change border color and background color when the checkbox is checked */
+input[type="checkbox"]:checked+label::before {
+  border-color: white;
+  background-color: hsl(345, 100%, 35%);
+}
+
+.rating-level {
+  display: flex;
+}
+
+.level-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.level-item {
+  margin-right: 20px; /* Adjust spacing between categories */
+}
+
+.courses-list {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+  transform: scale(0.98);
+}
+
+.product-image {
+  display: flex;
+  width: 90%;
+  height: auto;
+  background-color: hsl(345, 100%, 25%);
+  color: antiquewhite;
+  margin: 30px;
+  border-radius: 30px;
+  overflow: hidden;
+  padding: 40px;
+  box-shadow:  4px 4px 8px #540216,
+               -5px -5px 10px #e1cad0;
+  transition: transform 0.15s ease-in-out;
+}
+
+.product-image:hover {
+  transform: scale(1.25);
+}
+
+.course-info {
+  margin: 30px;
+}

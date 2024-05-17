@@ -4,10 +4,10 @@ import Home from "./pages/Home";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
 import Cart from "./pages/Cart";
-import Explore from "./pages/Explore"
-import Course from "./pages/Course"
-import Layout from "./pages/Layout"
-import NoPage from "./pages/noPage"
+import Explore from "./pages/Explore/Explore";
+import Course from "./pages/Course";
+import Layout from "./pages/Layout";
+import NoPage from "./pages/noPage";
 
 function App() {
   return (

@@ -16,7 +16,7 @@ const SideNav = () => {
           <ListItemIcon><HomeIcon /></ListItemIcon>
           <ListItemText primary="Home" />
         </ListItem>
-        <ListItem button component={Link} to="/search">
+        <ListItem button component={Link} to="/Explore">
           <ListItemIcon><SearchIcon /></ListItemIcon>
           <ListItemText primary="Search" />
         </ListItem>

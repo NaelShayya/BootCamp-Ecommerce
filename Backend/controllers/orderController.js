@@ -7,9 +7,10 @@ const createOrder = async (req, res) => {
 
     const productsDetails = await Product.find({ _id: { $in: products } });
 
+    //adds price of the current product to the total 
     const totalAmount = productsDetails.reduce(
       (total, product) => total + product.price,
-      0
+      0 //initial value of total 
     );
 
     const newOrder = new Order({
