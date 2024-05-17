@@ -3,7 +3,7 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
 import Cart from "./pages/Cart/Cart";
-import Explore from "./pages/Explore";
+import Explore from "./pages/Explore/Explore";
 import Course from "./pages/courses/Course";
 import CourseDetails from "./pages/courseDetails/CourseDetails";
 import Layout from "./pages/layout/Layout";
