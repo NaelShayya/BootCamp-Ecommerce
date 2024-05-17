@@ -11,27 +11,14 @@ const Header = () => {
   return (
     <header className="header">
       <div className="logo">CourseHub</div>
-      <nav>
-        <NavLink exact to="/" activeClassName="active">
-          Home
-        </NavLink>
-        <NavLink to="/courses" activeClassName="active">
-          Courses
-        </NavLink>
-        <NavLink to="/features" activeClassName="active">
-          Features
-        </NavLink>
-        <NavLink to="/contactUs" activeClassName="active">
-          Contact
-        </NavLink>
-      </nav>
+      <nav></nav>
       <div className="user-actions">
         <span></span>
-        <NavLink to="/cart" className="icon">
-          🛒
+        <NavLink to="/login" className="actions">
+          Log In
         </NavLink>
-        <NavLink to="/contactUs" className="logout" onClick={handleLogout}>
-          Logout
+        <NavLink to="/signup" className="actions" onClick={handleLogout}>
+          Register
         </NavLink>
       </div>
     </header>

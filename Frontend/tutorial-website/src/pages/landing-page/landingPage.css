@@ -1,0 +1,150 @@
+.wrapper {
+  width: 80%;
+  margin: auto;
+}
+
+section {
+  margin: 2em 0;
+}
+
+.section-img {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  margin-bottom: 2em;
+}
+
+.text {
+  text-align: left;
+  padding: 0 2em;
+  flex: 1;
+}
+
+.text h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.text p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #444;
+}
+
+.image {
+  flex: 1;
+  margin: 0 2em;
+  margin-bottom: 20px;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  max-height: 500px;
+}
+
+.section-tres-columnas {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.card {
+  background-color: #fff;
+  padding: 1em;
+  border-radius: 8px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.about-us {
+  background-color: #ff4d4f;
+}
+
+.why-choose-us .card {
+  background-color: #000;
+  color: #fff;
+}
+
+.icon-card {
+  width: 50px;
+  height: 50px;
+  fill: currentColor;
+}
+
+.title-card {
+  font-size: 1.8em;
+  font-weight: bold;
+  margin: 0.5em 0;
+}
+
+.p-card {
+  font-size: 1.1em;
+  text-align: center;
+  margin: 1em 0.5em;
+  color: white;
+}
+
+.btn-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  gap: 0.5em;
+  padding: 0.5em 1em;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  max-width: 200px;
+  max-height: 50px;
+}
+
+.btn-card:hover {
+  background-color: #333;
+}
+
+.btn-card span {
+  font-size: 1.1em;
+}
+
+.choose-card {
+  background-color: #fff;
+  padding: 1em;
+  border-radius: 8px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.choose-card h2 {
+  font-size: 1.8em;
+  font-weight: bold;
+  margin: 0.5em 0;
+}
+
+.choose-card p {
+  font-size: 20px;
+  text-align: center;
+  margin: 1em 0.5em;
+}

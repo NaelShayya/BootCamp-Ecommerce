@@ -33,7 +33,7 @@ function Login() {
       const token = responseData.user.token;
 
       sessionStorage.setItem("token", token);
-      navigate("/home");
+      navigate("/");
     } catch (err) {
       setError(err.message || "An error occurred during login.");
     }

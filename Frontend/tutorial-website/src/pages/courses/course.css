@@ -10,14 +10,15 @@
   margin-bottom: 20px; /* Add some space below the title */
 }
 
-.product-box {
+.course-product-box {
   flex: 0 0 auto; /* Do not grow or shrink */
   width: 300px;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  overflow: hidden; 
-   transition: box-shadow 0.3s ease; /* Smooth transitiont for image handling */
+  overflow: hidden;
+  transition: box-shadow 0.3s ease; /* Smooth transitiont for image handling */
   background-color: #fff;
+  margin: 10px;
 }
 
 .product-image-container img {
@@ -46,7 +47,7 @@
   margin-bottom: 10px;
   height: 35px;
   color: #333;
-} 
+}
 
 .course-list button {
   background-color: #ff282e;
@@ -58,6 +59,4 @@
   margin-bottom: 5px;
   cursor: pointer;
   text-decoration: auto;
-  
-  
 }
