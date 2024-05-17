@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import "./explore.css";
 import axios from "axios";
 import illustration from '../../assets/Search.gif';
+import course1 from '../../assets/course1.jpg';
+import course2 from '../../assets/course2.jpg';
+import course3 from '../../assets/course3.jpg';
+import course4 from '../../assets/course4.jpg';
+import course5 from '../../assets/course5.jpg';
+import '../courses/course.css';
 
 
 const Explore = () => {
@@ -43,19 +50,33 @@ const Explore = () => {
     "Professional",
   ];
 
-const handleLevelChange = (level) => {
-  if (selectedLevels.includes(level)) {
-    setSelectedLevels(selectedLevels.filter(item => item !== level));
-  } else {
-    setSelectedLevels([...selectedLevels, level]);
-  }
-};
+  const handleLevelChange = (level) => {
+    if (selectedLevels.includes(level)) {
+      setSelectedLevels(selectedLevels.filter(item => item !== level));
+    } else {
+      setSelectedLevels([...selectedLevels, level]);
+    }
+  };
 
   useEffect(() => {
     // Fetch course data from an API
     axios.get('http://localhost:3001/api/products/getAllProducts')
       .then(response => {
-        setCourses(response.data.products);
+        console.log('Fetched products:', response.data.products);
+
+        const products = response.data.products;
+        const productImages = [course1, course2, course3, course4, course5]; // Assuming these are pre-loaded images
+
+
+        const updatedProducts = products.map((product, index) => ({
+          ...product,
+          product_image: {
+            contentType: 'image/jpeg',
+            data: productImages[index % productImages.length]
+          }
+        }));
+
+        setCourses(updatedProducts);
       })
       .catch(error => {
         console.error('Error fetching courses:', error);
@@ -130,14 +151,14 @@ const handleLevelChange = (level) => {
             <div className="level-container">
               {level.map((level, index) => (
                 <div key={level} className="level-item">
-                <input
-                  type="checkbox"
-                  id={`level-${level}`}
-                  checked={selectedLevels.includes(level)}
-                  onChange={() => handleLevelChange(level)}
-                />
-                <label htmlFor={`level-${level}`}>{level}</label>
-              </div>
+                  <input
+                    type="checkbox"
+                    id={`level-${level}`}
+                    checked={selectedLevels.includes(level)}
+                    onChange={() => handleLevelChange(level)}
+                  />
+                  <label htmlFor={`level-${level}`}>{level}</label>
+                </div>
               ))}
             </div>
           </div>
@@ -151,10 +172,12 @@ const handleLevelChange = (level) => {
           <h6>Recommended Courses for you</h6>
           <br />
           <div className="courses-list">
-            {products.map((product) => (
+            {products.map(product => (
               <div key={product.id} className="product">
-                <img src={product.product_image} alt={product.name} className="product-image" />
-                <div className="course-info">
+                <Link to={`/course/${product.slug}`}>
+                  <img src={product.product_image.data} alt={product.name} />
+                </Link>
+                <div>
                   <h3>{product.name}</h3>
                   <p>{product.description}</p>
                 </div>
