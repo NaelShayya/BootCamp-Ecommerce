@@ -2,8 +2,17 @@ import Product from "../models/Product.js";
 
 const createProduct = async (req, res) => {
   try {
-    const { name, price, slug, description, product_image, category } =
-      req.body;
+    const {
+      name,
+      price,
+      slug,
+      description,
+      long_description,
+      certification,
+      lessons,
+      product_image,
+      category,
+    } = req.body;
 
     // Check if a product with the same slug already exists
     const existingProduct = await Product.findOne({ slug });
@@ -18,6 +27,9 @@ const createProduct = async (req, res) => {
       price,
       slug,
       description,
+      long_description,
+      certification,
+      lessons,
       product_image,
       category,
     });
