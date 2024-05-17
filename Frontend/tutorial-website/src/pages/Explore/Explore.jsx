@@ -58,9 +58,11 @@ const Explore = () => {
   }, [searchTerm, selectedCategories, courses]);
 
   const handleCategoryChange = (category) => {
-    setSelectedCategories(selectedCategories.includes(category.id)
-      ? selectedCategories.filter(id => id !== category.id)
-      : [...selectedCategories, category.id]);
+    if (selectedCategories.includes(category.id)) {
+      setSelectedCategories(selectedCategories.filter(id => id !== category.id));
+    } else {
+      setSelectedCategories([...selectedCategories, category.id]);
+    }
   };
 
   return (

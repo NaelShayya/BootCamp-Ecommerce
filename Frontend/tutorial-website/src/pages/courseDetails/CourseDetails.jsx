@@ -6,6 +6,7 @@ import course2 from '../../assets/course2.jpg';
 import course3 from '../../assets/course3.jpg';
 import course4 from '../../assets/course4.jpg';
 import course5 from '../../assets/course5.jpg';
+import Footer from '../../components/Footer/Footer';
 
 const CourseDetail = () => {
   const { slug } = useParams();
@@ -83,10 +84,8 @@ const CourseDetail = () => {
       <img src={product.image} alt={product.name} className="course-image" />
     </div>
   </div></div>
-  
- 
-  
 
+<Footer />
 </div>
 
   );
