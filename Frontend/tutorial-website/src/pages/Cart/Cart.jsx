@@ -116,7 +116,7 @@ const CheckoutForm = () => {
                 <div key={orderIndex} className="order-item">
                   <h3>Order #{orderIndex + 1}</h3>
                   {order.products.map((product, productIndex) => (
-                    <div key={productIndex} className="product">
+                    <div key={productIndex} className="product-cards">
                       <img
                         src={product.product_image}
                         alt="Product"
