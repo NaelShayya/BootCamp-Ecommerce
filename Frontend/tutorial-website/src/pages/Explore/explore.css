@@ -1,11 +1,7 @@
 .explore-content {
   text-align: center;
   padding: 40px;
-  flex: 1; /* Let it grow and take available space */
-  /* overflow-x: hidden;  Hides horizontal scrollbar 
-  transform: scale(0.98);
-  transform-origin: left top;  Keep the content aligned to the top left corner 
-  max-width: 100%; */
+  overflow-x: hidden;
 }
 
 .explore{
@@ -27,7 +23,7 @@
 }
 
 .category-item {
-  margin-right: 20px; /* Adjust spacing between categories */
+  display: inline-block;
 }
 
 /* Hide the actual checkbox */
@@ -85,30 +81,46 @@ input[type="checkbox"]:checked+label::before {
 
 .courses-list {
   display: flex;
-  justify-content: center;
-  margin: 5px;
-  transform: scale(0.98);
+  flex-wrap: wrap;
+  padding: 20px;
 }
 
-.product-image {
-  display: flex;
-  width: 90%;
-  height: auto;
-  background-color: hsl(345, 100%, 25%);
-  color: antiquewhite;
-  margin: 30px;
-  border-radius: 30px;
-  overflow: hidden;
-  padding: 40px;
+.product{
+  position: relative;
+  width: 200px;
+  margin: 10px 0px 40px 40px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
   box-shadow:  4px 4px 8px #540216,
-               -5px -5px 10px #e1cad0;
+  -5px -5px 10px #e1cad0;
   transition: transform 0.15s ease-in-out;
 }
 
-.product-image:hover {
+.product img{
+  width: 200px;
+  height: 120px;
+  border-radius: 10px;
+}
+
+.product img:hover{
   transform: scale(1.25);
 }
 
-.course-info {
-  margin: 30px;
+.product h3 {
+  font-size: 16px;
+  margin-bottom: 0px;
+  text-align: left;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.product p {
+  font-size: 14px;
+  margin-bottom: 10px;
+  height:40px;
+  margin-left: 10px;
+  text-align: left;
+  padding-bottom: 60px;
+
 }

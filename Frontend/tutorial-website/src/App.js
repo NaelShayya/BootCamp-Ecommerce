@@ -4,8 +4,10 @@ import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
 import Cart from "./pages/Cart/Cart";
 import Explore from "./pages/Explore/Explore";
-import Course from "./pages/courses/Course";
+import CourseList from "./pages/courses/Course";
 import CourseDetails from "./pages/courseDetails/CourseDetails";
+import ContactPage from "./pages/ContactUs/contactUs";
+import ForgotPassword from "./pages/forget-password/forgetPassword";
 import Layout from "./pages/layout/Layout";
 import NoPage from "./pages/noPage/noPage";
 
@@ -17,8 +19,10 @@ function App() {
           <Route index element={<Home />} />
           <Route path="cart" element={<Cart />} />
           <Route path="explore" element={<Explore />} />
-          <Route path="course" element={<Course />} />
+          <Route path="course" element={<CourseList />} />
           <Route path="course/:slug" element={<CourseDetails />} />
+          <Route path="contactUs" element={<ContactPage />} />
+          <Route path="forget-password" element={<ForgotPassword />} />
           <Route path="*" element={<NoPage />} />
         </Route>
         <Route path="login" element={<Login />} />

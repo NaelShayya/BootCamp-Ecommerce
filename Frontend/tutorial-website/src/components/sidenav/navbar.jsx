@@ -28,7 +28,7 @@ const SideNav = ({ isAuthenticated, onLogout }) => {
           </NavLink>
         </li>
         <li className={styles.navItem}>
-          <NavLink to="/courses" className={styles.navLink} activeClassName={styles.active}>
+          <NavLink to="/course" className={styles.navLink} activeClassName={styles.active}>
             <FontAwesomeIcon icon={faUserGraduate} className={styles.icon} />
             <span>Courses</span>
           </NavLink>
@@ -40,7 +40,7 @@ const SideNav = ({ isAuthenticated, onLogout }) => {
           </NavLink>
         </li>
         <li className={styles.navItem}>
-          <NavLink to="/contact" className={styles.navLink} activeClassName={styles.active}>
+          <NavLink to="/contactUs" className={styles.navLink} activeClassName={styles.active}>
             <FontAwesomeIcon icon={faEnvelope} className={styles.icon} />
             <span>Contact Us</span>
           </NavLink>
