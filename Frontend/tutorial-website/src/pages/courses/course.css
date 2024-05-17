@@ -4,47 +4,60 @@
   padding: 20px;
 }
 
-.card {
-  position: relative;
-  width: 200px;
-  margin: 10px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.card img {
-  width: 200px;
-  height: 120px;
-  border-radius: 10px;
-}
-
-.card h2 {
-  font-size: 16px;
-  margin-bottom: 0px;
-  text-align: left;
-  margin-left: 10px;
+.course-title {
+  font-size: 24px;
   font-weight: bold;
+  margin-bottom: 20px; /* Add some space below the title */
 }
 
-.card p {
+.product-box {
+  flex: 0 0 auto; /* Do not grow or shrink */
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  overflow: hidden; 
+   transition: box-shadow 0.3s ease; /* Smooth transitiont for image handling */
+  background-color: #fff;
+}
+
+.product-image-container img {
+  width: 100%;
+  height: 140px; /* Fixed height for uniformity */
+  object-fit: cover; /* Cover the container without stretching */
+}
+
+.product-details {
+  padding: 10px;
+  text-align: center;
+}
+
+.product-name {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.product-price {
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.product-description {
   font-size: 14px;
   margin-bottom: 10px;
-  height:40px;
-  margin-left: 10px;
-  text-align: left;
-}
+  height: 35px;
+  color: #333;
+} 
 
-.card button {
+.course-list button {
   background-color: #ff282e;
   color: white;
   border: none;
-  padding: 5px 10px;
+  padding: 8px 10px;
+  width: 100%;
   border-radius: 10px;
   margin-bottom: 5px;
   cursor: pointer;
   text-decoration: auto;
-  margin-left: 10px;
-  float: left; 
+  
+  
 }

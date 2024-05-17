@@ -18,9 +18,10 @@ const productSchema = new Schema({
     required: true,
     unique: true,
   },
-  description: {
-    String,
-  },
+  description: String,
+  long_description: String,
+  certification: String,
+  lessons: String,
   product_image: {
     data: Buffer,
     contentType: String,

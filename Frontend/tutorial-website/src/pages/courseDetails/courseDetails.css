@@ -1,24 +1,87 @@
 .course-detail-container {
   display: flex;
-  background-color: #200f0f24; 
+  flex-direction: column;
+  background-color: #cdd2d2;
   padding: 20px;
   border-radius: 10px;
+  height: 400px;
+}
+
+.course-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 50px; /* Add some space below the title */
+}
+
+.details-row {
+  display: flex;
 }
 
 .details-column {
-  flex: 1; 
+  flex: 1;
 }
 
 .image-column {
-  flex: 1; 
+  flex: 1;
 }
 
 .course-details {
   padding: 20px;
 }
 
-.course-image {
-  max-width: 100%; 
-  display: block; 
-  margin: auto; 
+.product-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
 }
+
+.product-description {
+  font-size: 16px;
+  color: #555;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.product-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff282e;
+}
+
+.course-image {
+  width: 600px;
+  height: 400px;
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.buy-now-row {
+  margin-top: 60px;
+    display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates four equal-width columns */
+  gap: 10px; /* Add some space between columns */
+ 
+}
+
+.buy-now-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #ff282e;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  float: right;
+  margin-right: 59px;
+}
+
+.buy-now-button:hover {
+  background-color: #950005;
+ 
+}
+
