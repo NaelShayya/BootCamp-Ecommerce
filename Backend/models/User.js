@@ -1,4 +1,7 @@
 import mongoose from "mongoose";
+import Country from "./Country.js";
+import Product from "./Product.js";
+
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
@@ -38,7 +41,7 @@ const userSchema = new Schema({
   },
   country: {
     type: Schema.Types.Mixed,
-    ref: "Country",
+    ref: Country,
     required: true,
   },
   role: {
@@ -53,7 +56,7 @@ const userSchema = new Schema({
   purchased_products: [
     {
       type: Schema.Types.Mixed,
-      ref: "Product",
+      ref: Product,
     },
   ],
 
