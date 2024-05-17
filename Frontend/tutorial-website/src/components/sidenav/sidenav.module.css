@@ -3,7 +3,7 @@
   position: fixed; /* Keeps the sidebar in place on scroll */
   left: 0;
   top: 0;
-  width: 80px;
+  width: 100px;
   height: 100vh;
   background-color: #fff;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
