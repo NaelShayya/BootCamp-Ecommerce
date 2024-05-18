@@ -34,6 +34,7 @@ function Login() {
 
       sessionStorage.setItem("token", token);
       navigate("/");
+      window.location.reload();
     } catch (err) {
       setError(err.message || "An error occurred during login.");
     }

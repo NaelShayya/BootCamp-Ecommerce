@@ -19,6 +19,7 @@ const SideNav = () => {
     sessionStorage.removeItem("token");
     setTimeout(() => {
       navigate("/");
+      window.location.reload();
     }, 100);
   };
 
