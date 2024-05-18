@@ -81,7 +81,6 @@ const ContactPage = () => {
 
   return (
     <>
-      <Header />
       <ContactUs
         formData={formData}
         errors={errors}

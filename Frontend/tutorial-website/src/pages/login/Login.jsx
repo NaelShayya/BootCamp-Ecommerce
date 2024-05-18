@@ -33,15 +33,19 @@ function Login() {
       const token = responseData.user.token;
 
       sessionStorage.setItem("token", token);
-      navigate("/home");
+      navigate("/");
+      window.location.reload();
     } catch (err) {
       setError(err.message || "An error occurred during login.");
     }
   };
 
   const handleForgotPassword = () => {
-    navigate("/forgotPassword");
+    navigate("/forget-password");
   };
+  const navSignup = () => {
+    navigate("/signup");
+  }
 
   return (
     <div className="app">
@@ -79,7 +83,7 @@ function Login() {
                 Login
               </button>
               <div className="or-text">or</div>
-              <button className="btn-join" type="button">
+              <button className="btn-join"  onClick = { () => navSignup()} type="button">
                 Signup
               </button>
             </div>

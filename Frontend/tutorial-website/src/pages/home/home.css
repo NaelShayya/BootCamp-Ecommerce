@@ -4,6 +4,13 @@
   max-width: 1400px;
 
 }
+/* Adding CSS to make h2 bold and big */
+h2 {
+  font-size: 25px;  /* Adjusts the font size */
+  font-weight: bold; /* Makes the text bold */
+  color: #333; /* Optional: sets a color */
+}
+
 
 .featured-products {
   width: 100%;
@@ -92,13 +99,11 @@
 }
 .category-container {
   display: flex;
-  justify-content: space-around;
   flex-direction: column;
   padding: 30px 0;
-
- width:95%;
   flex-wrap: wrap; /* Allows wrapping on smaller screens */
-  background-color: #fff; /* Optional: sets background color of the entire container */
+
+  text-align: start;
 }
 
 .category-tab {
@@ -153,7 +158,7 @@
   display: flex;
   flex-direction: row;
   gap: 50px; /* Adjust this value to increase or decrease spacing between tabs */
-  flex-wrap: wrap; /* Wraps items to the next line if not enough space */
+  flex-wrap: nowrap; /* Wraps items to the next line if not enough space */
 }
 
 

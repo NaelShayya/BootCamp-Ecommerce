@@ -25,6 +25,7 @@ const Explore = () => {
     axios.get('http://localhost:3001/api/category/getAll')
       .then(response => setCategories(response.data.categories))
       .catch(error => console.error('Error fetching categories:', error));
+      console.log("debug", categories)
   }, []);
 
   useEffect(() => {
@@ -51,17 +52,22 @@ const Explore = () => {
 
     // Filter by selected categories
     if (selectedCategories.length > 0) {
-      filtered = filtered.filter(course => selectedCategories.includes(course.categoryId));
+      filtered = filtered.filter(course => selectedCategories.includes(course.category));
     }
 
     setFilteredCourses(filtered);
   }, [searchTerm, selectedCategories, courses]);
 
   const handleCategoryChange = (category) => {
-    setSelectedCategories(selectedCategories.includes(category.id)
-      ? selectedCategories.filter(id => id !== category.id)
-      : [...selectedCategories, category.id]);
+    console.log('Before:', selectedCategories);
+    if (selectedCategories.includes(category._id)) {
+      setSelectedCategories(selectedCategories.filter(id => id !== category._id));
+    } else {
+      setSelectedCategories([...selectedCategories, category._id]);
+    }
+    console.log('After:', selectedCategories);
   };
+  
 
   return (
     <div className="explore-content">
@@ -85,17 +91,18 @@ const Explore = () => {
       <h6>Course Categories</h6>
       <br />
       <div className="category-container">
-        {categories.map((category, index) => (
-          <div key={index} className="category-item">
-            <input
-              type="checkbox"
-              id={`category-${category.id}`}
-              checked={selectedCategories.includes(category.id)}
-              onChange={() => handleCategoryChange(category)}
-            />
-            <label htmlFor={`category-${category.id}`}>{category.name}</label>
-          </div>
-        ))}
+      {categories.map((category, index) => (
+  <div key={index} className="category-item">
+    <input
+      type="checkbox"
+      id={`category-${category._id}`}
+      checked={selectedCategories.includes(category._id)}
+      onChange={() => handleCategoryChange(category)}
+    />
+    <label htmlFor={`category-${category._id}`}>{category.name}</label>
+  </div>
+))}
+
       </div>
     </div>
   </form>

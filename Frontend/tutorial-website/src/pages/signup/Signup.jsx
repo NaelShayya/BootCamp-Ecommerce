@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './signup.css';
 
 function Signup() {
@@ -16,6 +16,7 @@ function Signup() {
     role: '',
     status: '',
   });
+  const [countries, setCountries] = useState([]); 
 
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
@@ -28,6 +29,24 @@ function Signup() {
       [name]: files ? files[0] : value,
     });
   };
+  useEffect(() => {
+    const fetchCountries = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/api/countries');
+        const data = await response.json();
+        if (response.ok) {
+          setCountries(data);
+        } else {
+          setError('Failed to fetch countries.');
+        }
+      } catch (err) {
+        setError('Server error occurred.');
+      }
+    };
+
+    fetchCountries();
+  }, []);
+
 
   // Form submission handler
   const handleSubmit = async (e) => {
@@ -161,17 +180,16 @@ function Signup() {
             name="profile_picture"
             onChange={handleChange}
           />
-          <select
+        <select
             name="country"
             value={form.country}
             onChange={handleChange}
             required
           >
             <option value="" disabled>Select Country</option>
-            <option value="US">United States</option>
-            <option value="UK">United Kingdom</option>
-            <option value="IN">India</option>
-            {/* Add more options here as required */}
+            {countries.map(country => (
+              <option key={country.id} value={country.code}>{country.country_name}</option>
+            ))}
           </select>
           <input
             type="text"
@@ -191,7 +209,7 @@ function Signup() {
         {error && <div className="error-message">{error}</div>}
         {message && <div className="success-message">{message}</div>}
         <p className="login-message">
-          Already have an account? <a href="/login">Login</a>
+          Already have an account? <a href="/">Login</a>
         </p>
       </div>
     </div>

@@ -170,7 +170,7 @@ const Home = () => {
         <h2>Saved</h2>
         <div className="inner">
           <div class="course-card">
-            <img src={course1} alt="Mastering Photoshop" class="course-image" />
+            <img src={course1} alt="Mastering Photoshop" className="course-image" />
             <div class="course-content">
             <div className='course-card-details'>
               <h3 class="course-title">Mastering Photoshop</h3>
